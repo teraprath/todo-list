@@ -22,6 +22,8 @@ def new():
 
 @app.route("/edit/<int:id>", methods=["POST", "GET"])
 def edit(id):
+    if not db.check(id):
+        return redirect('404')
     list = db.getData(id)
     if request.method == "POST":
         task = request.form["task"]
@@ -33,6 +35,8 @@ def edit(id):
 
 @app.route("/delete/<int:id>")
 def delete(id):
+    if not db.check(id):
+        return redirect('404')
     db.delete(id)
     return redirect("/")
 
