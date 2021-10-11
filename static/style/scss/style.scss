@@ -1,0 +1,175 @@
+$prime: #005eff;
+$prime-dark: #222a40;
+$prime-transparent: #005eff88;
+$second: #1a1d25;
+$text-color: #fefefe;
+$text-color-dark: #a1a1a1;
+$font: 'Fira Code', monospace;
+$font-second: 'Poppins', sans-serif;
+$red: #ee4343;
+$red-dark: #483038;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: $second;
+    color: $text-color;
+    font-family: $font;
+}
+
+#main {
+    min-height: 100vh;
+
+    h1 {
+        color: $prime;
+        text-align: center;
+        font-size: 4rem;
+        padding-top: 32px;
+        font-weight: 700;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .task-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 64px;
+        font-family: $font-second;
+
+        .empty {
+            text-align: center;
+        }
+
+        .task {
+            width: clamp(400px, 60%, 60%);
+            margin: 0 0 1rem 0;
+            padding: 1.5rem;
+            background-color: $prime-dark;
+            border-radius: 16px;
+            text-align: justify;
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: $prime;
+
+                .edit {
+                    font-size: 1rem;
+                    text-decoration: none;
+                    color: $prime;
+                    float: right;
+
+                    transition: all 300ms;
+
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+
+            .description {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .form-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 64px;
+
+        form {
+            width: clamp(400px, 50%, 500px);
+            padding: 1.5rem;
+            background-color: $prime-dark;
+            border-radius: 16px;
+
+            input, textarea {
+                width: 100%;
+                background-color: transparent;
+                color: $text-color;
+                outline: none;
+                border: 2px solid $prime-transparent;
+                border-radius: 16px;
+                font-family: $font;
+                font-size: 1rem;
+                padding: 1rem;
+                margin: 8px 0;
+                resize: none;
+                font-family: $font-second;
+
+                transition: all 200ms;
+
+                &::placeholder {
+                    color: $text-color;
+                }
+
+                &:focus {
+                    border: 2px solid $prime;
+                }
+            }
+
+            .submit {
+                background-color: $prime;
+                border: 2px solid $prime;
+                font-family: $font;
+
+                transition: all 200ms;
+
+                &:hover {
+                    background-color: $prime-dark;
+                    color: $prime;
+                }
+            }
+        }
+    }
+}
+
+.button {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    height: 60px;
+    width: 150px;
+    margin: 2rem;
+    border: 2px solid $prime;
+    border-radius: 10px;
+    font-family: $font;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: $prime;
+    color: $text-color;
+
+    transition: all 200ms;
+
+    &:hover {
+        background-color: $prime-dark;
+        color: $prime;
+    }
+}
+
+#delete {
+    left: 0;
+    bottom: 0;
+    background-color: $red;
+    border: 2px solid $red;
+
+    &:hover {
+        background-color: $red-dark;
+        color: $red;
+    }
+}

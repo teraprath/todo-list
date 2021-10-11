@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todolist - Dashboard</title>
+
+    <link rel="stylesheet" href="../static/style/min/style.min.css">
+    <link rel="stylesheet" href="../static/style/min/loader.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a0a804109e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="loader"><div class="lds"><div></div><div></div><div></div><div></div></div></div>
+    <section id="main">
+        <h1>.todo(list)</h1>
+        <h2>list = ['Manage', 'your', 'Tasks']</h2>
+        <div class="task-container">
+            {% for item in todo %}
+            <div class="task">
+                <h3>{{ item[title] }}<span><a href="/edit/{{ item[id] }}" class="edit" id="edit"><i class="fas fa-edit"></i></a></span></h3>
+                <p class="description">{{ item[description] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <a href="/new"><button onclick="" class="button" id="new">.newTask()</button></a>
+    
+    <script src="../static/js/loader.js"></script>
+</body>
+</html>
