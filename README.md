@@ -1,2 +1,2 @@
-# Todolist
- A simple Todolist Website with Flask and MySQL
+# Your Personal Todolist
+ A simple Todolist Website with Python (Flask) and MySQL
