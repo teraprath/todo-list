@@ -32,9 +32,9 @@
         </div>
     </section>
     {% if id %}
-    <a href="../delete/{{ id }}"><button class="button" id="delete">.delete()</button></a>
+    <a href="{{ url_for('delete', id=id) }}"><button class="button" id="delete">.delete()</button></a>
     {% endif %}
-    <a href="../"><button class="button" id="cancel">.cancel()</button></a>
+    <a href="{{ url_for('index') }}"><button class="button" id="cancel">.cancel()</button></a>
 
     <script src="../static/js/loader.js"></script>
 </body>

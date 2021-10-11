@@ -24,15 +24,19 @@
         <h1>.todo(list)</h1>
         <h2>list = ['Manage', 'your', 'Tasks']</h2>
         <div class="task-container">
+            {% if todo == [] %}
+            <p class="empty">No Tasks.</p>
+            {% else %}
             {% for item in todo %}
             <div class="task">
-                <h3>{{ item[title] }}<span><a href="/edit/{{ item[id] }}" class="edit" id="edit"><i class="fas fa-edit"></i></a></span></h3>
+                <h3>{{ item[title] }}<span><a href="{{ url_for('edit', id=item[id]) }}" class="edit" id="edit"><i class="fas fa-edit"></i></a></span></h3>
                 <p class="description">{{ item[description] }}</p>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
     </section>
-    <a href="/new"><button onclick="" class="button" id="new">.newTask()</button></a>
+    <a href="{{ url_for('new') }}"><button onclick="" class="button" id="new">.newTask()</button></a>
     
     <script src="../static/js/loader.js"></script>
 </body>

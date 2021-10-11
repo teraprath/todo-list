@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import database as db
 
 db.init()
@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     list = db.list()
+    print(f"Debug: {list}")
     return render_template("index.html", todo=list, id=1, title=2, description=3)
 
 @app.route("/new", methods=["POST", "GET"])
@@ -34,6 +35,10 @@ def edit(id):
 def delete(id):
     db.delete(id)
     return redirect("/")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return "Page Not Found LOL", 404
 
 if __name__ == "__main__":
     app.run(port=5500, debug=True)
