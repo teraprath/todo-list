@@ -29,6 +29,7 @@ def edit(id):
         task = request.form["task"]
         description = request.form["description"]
         db.updateTitle(id, task)
+        db.updateDescription(id, description)
         return redirect("/")
 
     return render_template("form.html", title="Edit Task", id=id, headline="list.insert(edit)", button=".saveTask()", task_val=list[2], desc_val=list[3])

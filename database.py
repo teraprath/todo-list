@@ -1,5 +1,7 @@
 import mysql.connector
 import random
+
+from werkzeug.utils import validate_arguments
 import config
 
 prefix = "MySQL:"
@@ -52,17 +54,19 @@ def delete(id: int):
     mydb.commit()
     print(f"{prefix} {id} Deleted.")
 
-def update(id: int, column, to):
-    sql = f"UPDATE tasks SET {column} = {to} WHERE id = '{id}'"
-    cursor.execute(sql)
-    mydb.commit()
-    print(f"{prefix} Changed {column} in {id} to {to}.")
-
 def updateTitle(id: int, value: str):
-    sql = f"UPDATE tasks SET title = {value} WHERE id = '{id}'"
-    cursor.execute(sql)
+    sql = f"UPDATE tasks SET title = %s WHERE id = %s"
+    val = (value, id)
+    cursor.execute(sql, val)
     mydb.commit()
     print(f"{prefix} Changed title in {id} to {value}.")
+
+def updateDescription(id: int, value: str):
+    sql = f"UPDATE tasks SET description = %s WHERE id = %s"
+    val = (value, id)
+    cursor.execute(sql, val)
+    mydb.commit()
+    print(f"{prefix} Changed description in {id} to {value}.")
 
 def getData(id: int):
     cursor = mydb.cursor(buffered=True)
