@@ -19,24 +19,27 @@ body {
     background-color: $second;
     color: $text-color;
     font-family: $font;
+
+    section {
+        min-height: 100vh;
+
+        h1 {
+            color: $prime;
+            text-align: center;
+            font-size: 4rem;
+            padding-top: 32px;
+            font-weight: 700;
+        }
+    
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
 }
 
 #main {
-    min-height: 100vh;
-
-    h1 {
-        color: $prime;
-        text-align: center;
-        font-size: 4rem;
-        padding-top: 32px;
-        font-weight: 700;
-    }
-
-    h2 {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 600;
-    }
 
     .task-container {
         width: 100%;
@@ -134,6 +137,24 @@ body {
                     color: $prime;
                 }
             }
+        }
+    }
+}
+
+#error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .return {
+        text-decoration: none;
+        color: $text-color;
+
+        transition: all 200ms;
+
+        &:hover {
+            color: $prime;
         }
     }
 }
