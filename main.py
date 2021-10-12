@@ -7,7 +7,6 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     list = db.list()
-    print(f"Debug: {list}")
     return render_template("index.html", todo=list, id=1, title=2, description=3)
 
 @app.route("/new", methods=["POST", "GET"])

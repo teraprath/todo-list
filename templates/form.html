@@ -8,7 +8,7 @@
         <div class="form-container">
             <form method="post">
                 <input type="text" name="task" id="task" placeholder="Task" value="{% if task_val %}{{ task_val }}{% endif %}" required><br>
-                <textarea name="description" id="description" cols="30" rows="5" placeholder="Description" required>{% if desc_val %}{{ desc_val }}{% endif %}</textarea><br>
+                <textarea name="description" id="description" maxlength="255" cols="30" rows="5" placeholder="Description" required>{% if desc_val %}{{ desc_val }}{% endif %}</textarea><br>
                 <input type="submit" class="submit" value="{{ button }}">
             </form>
         </div>
